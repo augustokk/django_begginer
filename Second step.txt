@@ -1,0 +1,92 @@
+Step 1 : open cmd
+run command (cd testevenv) [we are using same as first step but you can create a new directory if wish]
+run command (mkdir projeto-todo) [that will create a new project *projeto-todo can be any name]
+run command (cd projeto-todo) [that will move you into the projeto-todo]
+run command (virtualenv venvtodo) [that will create your virtual environment]
+run command (venvtodo\Scripts\activate) [that will activate the virtual environment]
+run command (pip install django) [that will install django on that virtual environment]
+run command (django-admin startproject todo) [that will start our project todo]
+
+Step 2 : open your editor
+In my case i am using pycharm
+First I create a new project (file -> new project)
+Then i selected the specific location where my directory [testevenv] is, and click create
+
+Step 3:
+In pycharm i open the folder todo as we created earlier
+Go to the terminal
+run command (cd projeto-todo) [that will move you into the projeto-todo]
+run command (venvtodo\Scripts\activate) [that will activate the virtual environment]
+run command (cd todo) [that will move you into the todo]
+run command (django-admin startapp tasks)
+run command (django-admin startapp about)
+run command (django-admin startapp users)
+
+***IMPORTANT*** in django we create 1 project and that project can have many apps
+#EXAMPLE the project is 1 : projeto-todo and the apps are: tasks / about / users
+
+
+Step 4:
+in the folder todo we go for the file settings.py
+under the list INSTALLED_APPS we will add our new app created:
+
+    'tasks',
+    'about',
+    'users',
+
+
+STEP 5:
+in the folder tasks we are going to create a python file called urls.py
+now we can copy the code from the folder todo the already existent urls.py
+
+from django.contrib import admin
+from django.urls import path
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
+
+now we apply some changes to it:
+
+# from django.contrib import admin [that line just need to be called once on project, not in all apps, so we comment it or delete]
+from django.urls import path
+from . import views # add this line to import from views
+urlpatterns = [
+    path('helloworld/', views.helloworld), #here we change the path because we are going to call the helloworld, frow views
+]
+
+
+
+STEP 6:
+in the folder tasks we go for the python file views.py
+we are ging to add this code:
+
+
+from django.http import HttpResponse #need to import specific library
+from django.shortcuts import render
+
+ #that is the function we are creating called helloworld that will output the specific message, [REMEMBER]helloworld is the name we are using at urls.py 
+
+def helloworld(request):
+    return HttpResponse('Hello World!')
+
+STEP 7:
+in the folder todo [remember this is the folder of the project]
+in the file urls.py
+we change the code to:
+
+from django.contrib import admin
+from django.urls import path, include # we add the include library
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('tasks.urls')) # we include specific path for tasks.url
+]
+
+STEP 8:
+in the terminal of pycharm (editor) 
+run command (python .\manage.py runserver)
+
+STEP 9:
+In your browser type localhost:8000/helloworld on the url
+Then that message Hello World! that we created of the function helloworld will show up on the screen
