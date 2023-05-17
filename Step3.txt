@@ -1,0 +1,77 @@
+CREATE URL
+- needs a function called path
+- the path needs at least 2 argument (url, view)
+- the path can also have a name
+
+CREATE VIEW 
+- always need a request
+- always return something
+
+STEP 1:
+- open the file urls from the app tasks
+- add an extra path in the urlpatterns list
+
+    path('', views.taskList, name='task-list'),
+	    # empty url will be the 'home'
+
+STEP 2:
+- open the file views from the app tasks
+- add a function called taskList
+
+def taskList(request):
+    return render(request, 'tasks/list.html')
+
+# REMEMBER view always need request and return
+# RENDER is a built-in function that needs 2 parameters: a request and a template
+# we are going to create the template called list.html
+
+
+STEP 3:
+As a pattern in django the templates are kept in a folder called templates
+- in the folder tasks we create a folder called templates
+- inside that folder we create another folder called tasks
+- inside that folder we create a file called list.html
+- create a simple html tag to check if is working
+<h1>List of tasks</h1>
+
+STEP 4:
+To check if is working we run the server
+- On terminal at pycharm at the specific location (projeto-todo\todo)
+- run command (python .\manage.py runserver)
+- as ouput of the command will shown an url, when you click it opens the browser with the specific content of the template (List of tasks)
+- in my scenario the url was:  http://127.0.0.1:8000/
+- if you type on the browser http://localhost:8000/, you will get the same
+
+STEP 5:
+passing arguments 
+- create a new url
+- open the file urls from the app tasks
+- add an extra path in the urlpatterns list
+    path('yourname/<str:name>', views.yourName, name='your-name'),
+	#that will allow to receive a string
+
+STEP 6:
+- open the file views from the app tasks
+- add a function called yourName
+
+def yourName(request, name):
+    return render(request, 'tasks/yourname.html', {'name': name}) # 'name' could be any other word
+	#that is returning the request , template , argument
+
+STEP 7:
+- inside the folder tasks we go for the folder templates
+- inside that folder templates we go for the folder tasks
+- inside that folder we create another hmtl file called: yourname.html
+- we are going to create a code to receive the parameter name
+	<h1>Your name is: {{name}}</h1>
+
+STEP 8:
+Now we are going to check if it is working
+in the browser with any of the open pages
+-http://127.0.0.1:8000/
+-http://localhost:8000/
+ we add yourname/augusto
+example:
+http://localhost:8000/yourname/augusto
+
+The output on browser should be: Your name is: augusto
