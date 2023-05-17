@@ -1,0 +1,75 @@
+We are going to extend the template, to make easier to keep the pattern different pages
+
+STEP 1:
+create a html file under the templates (as all the pages are going to use it) called base.html
+we are going to create a real simple code for the moment, just to start
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- django allow to use it to get specific templates for each page -->
+    <!-- we need to use the formatting {% block name %} {% endblock %} -->
+    <title>{% block title %} {% endblock %} </title>  
+</head>
+<body>
+    <p> navigation bar</p>
+    {% block content %}
+    {% endblock %}
+    <p> footer</p>
+
+</body>
+</html>
+
+STEP 2:
+we will modify the other html files that we already built to receive that base template
+- list.html
+
+{% extends 'base.html' %}   <!-- that will collect the base template data-->
+
+{% block title %} List of tasks {% endblock %}  <!-- that will give a specific title for the page -->
+
+{% block content %} <!-- that will give a specific content for the page -->
+    <h1>List of tasks</h1>
+{% endblock %}
+
+
+-yourname.html
+{% extends 'base.html' %}   <!-- that will collect the base template data-->
+
+{% block title %} Your name {% endblock %}  <!-- that will give a specific title for the page -->
+
+{% block content %} <!-- that will give a specific content for the page -->
+    <h1>Your name is: {{name}}</h1>
+{% endblock %}
+
+STEP 3:
+To check if is working we run the server (tasks.html)
+- On terminal at pycharm at the specific location (projeto-todo\todo)
+- run command (python .\manage.py runserver)
+- as ouput of the command will shown an url, when you click it opens the browser with the specific content of the template 
+
+navigation bar
+List of tasks
+footer
+
+- in my scenario the url was:  http://127.0.0.1:8000/
+- if you type on the browser http://localhost:8000/, you will get the same
+
+STEP 4:
+Now we are going to check if it is working yourname.html
+in the browser with any of the open pages
+-http://127.0.0.1:8000/
+-http://localhost:8000/
+ we add yourname/augusto
+example:
+http://localhost:8000/yourname/augusto
+
+The output on browser should be:
+
+navigation bar
+Your name is: augusto
+footer
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- django allow to use it to get specific templates for each page -->
+    <!-- we need to use the formatting {% block name %} {% endblock %} -->
+    <title>{% block title %} {% endblock %} </title>
+</head>
+<body>
+    <p> navigation bar</p>
+    {% block content %}
+    {% endblock %}
+    <p> footer</p>
+
+</body>
+</html>
