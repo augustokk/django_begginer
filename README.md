@@ -21,3 +21,6 @@ Second step open your cmd on your windows:
 Third step open your browser:
 - type http://localhost:8000/ on your url
 - that will open a django page with the successful message (The install worked successfully! Congratulations!)
+
+Fourth step:
+- follow the text on file -> step 2 and so on...
