@@ -1,1 +1,7 @@
-<h1>Your name is: {{name}}</h1>
+{% extends 'base.html' %}   <!-- that will collect the base template data-->
+
+{% block title %} Your name {% endblock %}  <!-- that will give a specific title for the page -->
+
+{% block content %} <!-- that will give a specific content for the page -->
+    <h1>Your name is: {{name}}</h1>
+{% endblock %}
