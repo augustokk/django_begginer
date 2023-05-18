@@ -30,37 +30,15 @@
     <!-- task-list is my creation to style later-->
     <!-- task-item is my creation to style later-->
     <ul class="task-list">
-
+        {% for task in tasks %} <!-- sintax of django for loop to iterate over all objects-->
         <li class="task-item">
-            <span> Task Tilte</span>
+            <!-- the hiperlink with route to task.id will be connected to provide the task title-->
+            <!-- important we dont need to give id in the models, the django will already give a unique id for each object-->
+            <span> <a href="/task/{{task.id}}">{{task.title}}</a></span> 
             <span> <i class="fas fa-trash"></i></span> <!-- icon to delete task-->
             <span> <i class="fas fa-edit"></i></span> <!-- icon to edit task-->
         </li>
-
-        <li class="task-item">
-            <span> Task Tilte</span>
-            <span> <i class="fas fa-trash"></i></span>
-            <span> <i class="fas fa-edit"></i></span>
-        </li>
-
-        <li class="task-item">
-            <span> Task Tilte</span>
-            <span> <i class="fas fa-trash"></i></span>
-            <span> <i class="fas fa-edit"></i></span>
-        </li>
-
-        <li class="task-item">
-            <span> Task Tilte</span>
-            <span> <i class="fas fa-trash"></i></span>
-            <span> <i class="fas fa-edit"></i></span>
-        </li>
-
-        <li class="task-item">
-            <span> Task Tilte</span>
-            <span> <i class="fas fa-trash"></i></span>
-            <span> <i class="fas fa-edit"></i></span>
-        </li>
-
+        {% endfor %}
     </ul>
     
 </div>

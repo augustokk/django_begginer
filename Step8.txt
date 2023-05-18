@@ -1,0 +1,33 @@
+Now we are going to start the CRUD
+Create
+Read
+Update
+Delete
+
+STEP 1:
+in the file views.py (tasks > views.py)
+- import the specific model
+- update the function taskList 
+
+STEP 2:
+in the file list.html (tasks > templates > tasks > list.html)
+- delete all unnecessary li (created just for checking the code)
+- create a for loop using django built in
+- add a hiperlink that will connect with new route with the id of a task to provide the title
+
+STEP 3:
+in the file urls.py (tasks > urls.py)
+- create a new path that will receive an id and return a task on template
+
+STEP 4:
+again in the file views.py (tasks > views.py)
+- import get_object_or_404
+- create a new function taskView
+
+STEP 5:
+- create a new html file (task.html) on folder (tasks > templates> tasks)
+- create connection to get specific task title and description 
+
+STEP 6:
+- simple change at code to allow the user to return to the home to do list
+<a class="navbar-brand" href="/">To Do</a> [instead of href="#"]
