@@ -3,5 +3,65 @@
 {% block title %} List of tasks {% endblock %}  <!-- that will give a specific title for the page -->
 
 {% block content %} <!-- that will give a specific content for the page -->
+
+<!-- at bootstrap it uses 12 columns, in that case we select 10 to not get full content of page-->
+<!-- the offset of 1 will make the content centeralized-->
+<!-- Example: 1 offset 10 columns 1 offset = total 12 columns-->
+<!-- list-div is my creation to style later-->
+<div class="offset-1 col-10 list-div">
     <h1>List of tasks</h1>
+
+     <!-- now i am adding a div to add tasks-->
+     <!-- that div will take 2 columns of space-->
+     <!-- add-div is my creation to style later-->
+    <div class="col-2 add-div">
+        <!-- now we are going to use icones from font awesome -->
+        <!-- that will add the icon of plus on easier way -->
+        <i class="fas fa-plus"></i> Add task
+    </div>
+
+    <!-- search-div is my creation to style later-->
+    <div class="col-9 search-div">
+        <input class="form-control" type="text" id="search" name="search" placeholder="Type a task name to search">
+        <i class="fas fa-search"></i> 
+    </div>
+
+    <!-- now we add our task list-->
+    <!-- task-list is my creation to style later-->
+    <!-- task-item is my creation to style later-->
+    <ul class="task-list">
+
+        <li class="task-item">
+            <span> Task Tilte</span>
+            <span> <i class="fas fa-trash"></i></span> <!-- icon to delete task-->
+            <span> <i class="fas fa-edit"></i></span> <!-- icon to edit task-->
+        </li>
+
+        <li class="task-item">
+            <span> Task Tilte</span>
+            <span> <i class="fas fa-trash"></i></span>
+            <span> <i class="fas fa-edit"></i></span>
+        </li>
+
+        <li class="task-item">
+            <span> Task Tilte</span>
+            <span> <i class="fas fa-trash"></i></span>
+            <span> <i class="fas fa-edit"></i></span>
+        </li>
+
+        <li class="task-item">
+            <span> Task Tilte</span>
+            <span> <i class="fas fa-trash"></i></span>
+            <span> <i class="fas fa-edit"></i></span>
+        </li>
+
+        <li class="task-item">
+            <span> Task Tilte</span>
+            <span> <i class="fas fa-trash"></i></span>
+            <span> <i class="fas fa-edit"></i></span>
+        </li>
+
+    </ul>
+    
+</div>
 {% endblock %}
