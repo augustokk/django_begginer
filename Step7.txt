@@ -1,0 +1,115 @@
+In that step we are going to start the database system
+
+MODELS - in basic words: is like a file that contains data (title description, date, solved, for example)
+
+MIGRATIONS - in basic words: transfer the python code for sql, then sql for a database
+
+STEP 1:
+in the folder tasks we open the file models.py
+- create a class for our app tasks 
+	class Task(models.Model): (inherit data from the file models of the class Model)
+
+    # constant with values in tuple 
+    STATUS= (
+        ('Doing', 'Doing'),
+        ('Done', 'Done'),
+    )
+
+
+-then we create the fields that we are going to use in our database
+	
+	title = models.CharField(max_length=255)
+# inherit data from the file models of the class Charfield
+#charfield means that will accpt any element from charset and that needs to receive a size argument, we set as 255 for this example
+
+    description = models.TextField()
+# use textfield, because there is no max length, better choice for description
+
+    done = models.CharField(
+        max_length=10, 
+        choices = STATUS,)
+
+
+    created_at = models.DateTimeField(auto_now_add=True)
+# that will automatically store the new date and time when a new object is created
+
+    updated_at =  models.DateTimeField(auto_now=True)
+# that will automatically store the date and time when a new object is updated
+
+STEP 2:
+run command (CTRL + c) to confirm you stop the server
+
+*REMEMBER*
+activate the script to run the virtual environment
+at the location projeto-todo on the terminal 
+run command (venvtodo\Scripts\activate)
+
+- on the location projeto-todo>todo
+run command (python .\manage.py makemigrations)
+
+- that will create a python file under the migrations folder (in my case 0001_initial.py)
+
+run command (python .\manage.py migrate)
+that will create the admin area and all the models from the project
+
+run command (python .\manage.py runserver)
+- then in the browser after the location add /admin
+*example: http://127.0.0.1:8000/admin
+- that will redirect you for a django administration, just like a login page
+asking for username and password
+ 
+run command (CTRL + c) to confirm you stop the server
+
+STEP 3:
+run command (python .\manage.py createsuperuser)
+- that will ask some info in the terminal to create the superuser (name,email ,password)
+* the typing for password is hidden
+
+run command (python .\manage.py runserver)
+- then in the browser after the location add /admin
+
+now in the admin page use the credentials just as you created 
+
+that will open the django admin page 
+
+STEP 4:
+in the django administration page click in users
+- you are going to see the user you just created
+
+on the top rigth side click on add user
+complete the info (username , password)
+click on save
+
+next page you can (no need at the moment):
+- put more detailed info (name / surname / email)
+- select if is a member / staff / superuser
+- include in a group
+- give specific permssions
+
+STEP 5:
+at django administration website we can only view the apps Group and Users, now we are going to add the app tasks
+run command (CTRL + c) to confirm you stop the server
+
+in the folder tasks open the file admin.py
+we import the models we need:
+from .models import Task
+
+now register it inside of django admin
+admin.site.register(Task)
+
+now if you check again the django admin page, it contains tasks
+
+STEP 6:
+- click on tasks
+- on the top rigth side click on add task
+- complete info:
+	title: first task
+	description: This is the first task
+	done: (you can select only doing / done) doing
+- click save
+
+STEP 7:
+to show the title of task instead of task object(1) we need to add some function on the models.py file
+
+    def __str__(self):
+        return self.title

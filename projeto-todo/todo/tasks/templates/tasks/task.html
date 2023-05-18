@@ -1,0 +1,10 @@
+{% extends 'base.html' %} 
+
+{% block title %} List of tasks {% endblock %}
+
+{% block content %} 
+<div class="offset-1 col-10 list-div">
+    <h1>{{task.title}}</h1> <!-- connection to get specific task title  -->
+    <p>{{task.description}}</p> <!-- connection to get specific task description  -->
+</div>
+{% endblock %}
