@@ -1,3 +1,110 @@
-h1{
-    color:red;
+.container-fluid{
+    /*that helps avoiding the auto spacing of the div*/
+    padding: 0;  
+}
+
+/* Navigation bar */
+
+.navbar{
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar-nav{
+    margin: auto;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav a.nav-link{
+    color: #333;
+    letter-spacing: 1px;
+}
+
+
+/* Add button */
+
+.add-div{
+    background-color: #3476e2;
+    cursor: pointer;
+    display: inline-block; /* to set it on the same line as the search button */
+    color: #FFF;
+    padding: 8px; 
+    border-radius: 5px; 
+    margin-right: 25px; /* to set a space appasrt from search button  */
+}
+
+.fas.fa-plus{
+    color: #FFF;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+
+/* Search Space */
+
+.fas.fa-search{
+    position:absolute; /* easier to move around the screen */
+    top: 12px;
+    right: 26px;
+}
+
+.search-div{
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+
+/* Task List */
+
+.list-div{
+    padding: 0; /*remove the auto spacing of the div*/
+}
+
+.task-list{
+    padding-left: 0; /*remove the auto spacing of the div (on left)*/
+}
+
+.task-item{
+    list-style: none; /*remove list style */
+    font-size: 20px;
+    height: 50px;
+    padding-top: 10px; /* avoid to be to close with the element on the top*/
+    border-bottom: 1px dashed #ccc;
+}
+
+.fas.fa-trash, .fas.fa-edit{
+    cursor: pointer;
+    margin: 5px;  /* avoid to be too close of each other */
+    font-size: 20px;
+    float: right;  /* that will keep them on the rigth side of the project inside of the container */
+}
+
+.fas.fa-trash{
+    color: #db1e47;
+}
+
+.fas.fa-edit{
+    color: #13c43f;
+}
+
+
+/* Footer */
+
+footer{
+    background-color: #333;
+    height: 300px;
+    border-top: 2px solid #202020;
+}
+
+footer p{
+    color: #f5f5f5;
+    text-align: center;
+    top: 50%;
+    position: relative;
 }

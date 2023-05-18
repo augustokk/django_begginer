@@ -1,0 +1,26 @@
+-At this stage instead of using pycharm i started to use visual studio code
+Because the interaction with css and javascript is more user friendly at visual studio code
+That step is much about adding some style to the project
+Based on that there is no much steps to follow one-by-one
+You can check how that STEP 6 finishes on the branch step6 if you have any doubt
+
+in that step we are going to do a bit more about layout of our system
+
+STEP 1:
+at the base.html file
+- we make the div container as fluid to take all the space of the page
+- add a paragraph into the footer
+
+
+STEP 2:
+at list.html we are adding more elements and adding bootstrap
+we are also going to use the font awesome to built the layout
+-for that you go for the website [https://fontawesome.com/] 
+-You will need setup a new account
+-that will generate a unique code to copy in your file
+-we add that code on base.html
+-in the head section
+-under the link of bootstrap 
+
+STEP 3:
+at the styles.css file we are going to add some styles 
