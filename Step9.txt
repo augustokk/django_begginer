@@ -1,0 +1,43 @@
+STEP 1:
+at file urls.py (tasks > urls.py)
+- we are going to add a new path to be able to create new tasks
+
+STEP 2:
+on list.html (todo > tasks > templates > tasks >list.html)
+- we add an ahref on the add button to direct ir for the url to add a new task
+
+STEP 3:
+on style.css (todo > tasks > static > css> styles.css)
+- we add an formatting style for that a href we just ceated to avoid the underline
+
+STEP 4:
+now we are going to create the form to add new task
+in django we need to create a Class for every form we are going to use
+in the tasks folder (todo > tasks)
+- we create a file called forms.py
+- import the forms from django
+- import our models (that will make easier, because it will respect the fields we have already)
+- create Class (TaskForm)
+- inside we create another Class (Meta)
+- in Meta Class we are going to select th fields that we want to appear on the screen (title / description)
+
+STEP 5:
+on the views.py (todo > tasks >views.py)
+- we import the class TaskForm from forms
+- we import the function redirect from django.shortcuts
+- update the function taskList to order the data by creation date
+- create a new function called newTask
+- check if request is POST
+- if is validate we save the data and return to homepage
+- if not that will ask you to fill the fields
+STEP 6: 
+on the tasks (todo > tasks > templates > tasks)
+- create a file addtask.html
+- here we are adding the tag form
+
+*IMPORTANT* in django we must add the tag {% csrf_token %}  , because that protect the site of cross site request forgery
+ is a secure random token that is used to prevent CSRF attacks
+
+- add the tag {{ form.as_p}} that tag will print the form in paragraphs
+- add input fields
+        

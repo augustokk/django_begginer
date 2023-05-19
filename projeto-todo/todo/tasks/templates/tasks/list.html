@@ -11,15 +11,19 @@
 <div class="offset-1 col-10 list-div">
     <h1>List of tasks</h1>
 
-     <!-- now i am adding a div to add tasks-->
-     <!-- that div will take 2 columns of space-->
-     <!-- add-div is my creation to style later-->
-    <div class="col-2 add-div">
-        <!-- now we are going to use icones from font awesome -->
-        <!-- that will add the icon of plus on easier way -->
-        <i class="fas fa-plus"></i> Add task
-    </div>
+    <!-- we add an ahref on the add button to direct ir for the url to add a new task -->
+    <a id="add-link" href="newtask/"> 
 
+        <!-- now i am adding a div to add tasks-->
+        <!-- that div will take 2 columns of space-->
+        <!-- add-div is my creation to style later-->
+        <div class="col-2 add-div">
+            <!-- now we are going to use icones from font awesome -->
+            <!-- that will add the icon of plus on easier way -->
+            <i class="fas fa-plus"></i> Add task
+        </div>
+    </a>
+    
     <!-- search-div is my creation to style later-->
     <div class="col-9 search-div">
         <input class="form-control" type="text" id="search" name="search" placeholder="Type a task name to search">

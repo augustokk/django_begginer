@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.taskList, name='task-list'),  # empty url will be the 'home'
     path('yourname/<str:name>', views.yourName, name='your-name'),  # that will allow to receive a string
     path('task/<int:id>', views.taskView, name="task-view"),  # that will receive an id and return a task on template
+    path('newtask/', views.newTask, name="new-task"), #that will be the path to create a new task
 
 ]
