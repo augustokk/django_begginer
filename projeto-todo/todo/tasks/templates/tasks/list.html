@@ -30,6 +30,18 @@
         <i class="fas fa-search"></i> 
     </div>
 
+    <!-- space to show message if task is deleted, for example -->
+    {% if messages %} <!-- check if there is a message -->
+        <ul class = "messages">
+            {% for message in messages %} <!-- for loop to check if there is more than 1 message -->
+                <!-- fcheck if the message has any tag (info) -->
+                <li     {% if message.tags %}   class="alert alert-{{message.tags}}"    {% endif %}> 
+                    {{ message }}
+                </li> 
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <!-- now we add our task list-->
     <!-- task-list is my creation to style later-->
     <!-- task-item is my creation to style later-->
@@ -39,7 +51,11 @@
             <!-- the hiperlink with route to task.id will be connected to provide the task title-->
             <!-- important we dont need to give id in the models, the django will already give a unique id for each object-->
             <span> <a href="/task/{{task.id}}">{{task.title}}</a></span> 
-            <span> <i class="fas fa-trash"></i></span> <!-- icon to delete task-->
+
+            <!-- we add an ahref on the delete button to direct it for the url to delete task -->
+            <a href ="delete/{{task.id}}">
+                <span> <i class="fas fa-trash"></i></span>  <!-- icon to delete task-->
+            </a>
             
              <!-- we add an ahref on the edit button to direct it for the url to edit task -->
             <a href ="edit/{{task.id}}">

@@ -8,4 +8,5 @@ urlpatterns = [
     path('task/<int:id>', views.taskView, name="task-view"),  # that will receive an id and return a task on template
     path('newtask/', views.newTask, name="new-task"), # that will be the path to create a new task
     path('edit/<int:id>', views.editTask, name='edit-task'), # needs id to select specific task to update
+    path('delete/<int:id>', views.deleteTask, name='delete-task'), # needs id to select specific task to delete
 ]
