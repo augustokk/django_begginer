@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block title %} List of tasks {% endblock %}
+
+{% block content %} 
+<div class="offset-1 col-10 list-div">
+    <h1>Add your new task: </h1>
+    <form method="POST">
+
+        <!--in django we must add that tag,
+        because that protect the site of cross site request forgery
+        is a secure random token that is used to prevent CSRF attacks -->
+        {% csrf_token %}
+
+        <!-- that tag will print the form in paragraphs -->
+        {{ form.as_p}}
+
+        <input type="submit" class="btn btn-success" value="Create Task">
+    </form> 
+
+</div>
+{% endblock %}
