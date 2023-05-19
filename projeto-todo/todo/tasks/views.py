@@ -56,3 +56,32 @@ def newTask(request):
     else:
         form =TaskForm()  
         return render(request, 'tasks/addtask.html', {'form': form})
+    
+
+# that function needs to receive the id to be able to edit the specific task
+def editTask(request, id):
+
+    # with that built-in function will collect the object with the specific id
+    # if there is none, return error 404
+    task = get_object_or_404(Task, pk=id)
+
+    # need to have a filled form to be able to update it
+    # we use the instance to be able to show the form filled to the user
+    form = TaskForm(instance=task)
+
+    #check if there is any form 
+    if(request.method == 'POST'):
+        form = TaskForm(request.POST, instance=task)
+
+        # check if the form is valid
+        if(form.is_valid()):
+            # save the task
+            task.save()
+             # after save the task we want to return to the 'home' page
+            return redirect('/')
+        else:
+            return render(request, 'tasks/edittask.html', {'form' : form, 'task': task})
+        
+    else:
+        return render(request, 'tasks/edittask.html', {'form' : form, 'task': task})
+

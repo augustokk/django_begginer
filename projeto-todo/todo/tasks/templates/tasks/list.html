@@ -40,7 +40,11 @@
             <!-- important we dont need to give id in the models, the django will already give a unique id for each object-->
             <span> <a href="/task/{{task.id}}">{{task.title}}</a></span> 
             <span> <i class="fas fa-trash"></i></span> <!-- icon to delete task-->
-            <span> <i class="fas fa-edit"></i></span> <!-- icon to edit task-->
+            
+             <!-- we add an ahref on the edit button to direct it for the url to edit task -->
+            <a href ="edit/{{task.id}}">
+                <span> <i class="fas fa-edit"></i></span>  <!-- icon to edit task-->
+            </a>
         </li>
         {% endfor %}
     </ul>
