@@ -1,0 +1,22 @@
+That step still part of our CRUD
+In that step we are going to add the path, the view and the template for the user be able to update the tasks
+
+STEP 1:
+at file urls.py (tasks > urls.py)
+- we are going to add a new path to be able to update tasks
+- in that path is necessary to identify using th primary key (id) to avoid updtae wrong task
+
+STEP 2:
+on the views.py (todo > tasks >views.py)
+- we create a new function called editTask
+- to collect the specific task using the id and with the form filled to present to the user
+- check if there is popullated data
+
+STEP 3:
+on the tasks (todo > tasks > templates > tasks)
+- create a file edittask.html
+- the code is almost the same as the one for add task with just small changes from add to edit 
+
+STEP 4:
+on list.html (todo > tasks > templates > tasks >list.html)
+- we add an ahref on the edit button to direct it for the url to edit task

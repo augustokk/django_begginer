@@ -1,0 +1,41 @@
+That step still part of our CRUD
+In that step we are going to add the path, the view and the template for the user be able to delete the tasks
+
+STEP 1:
+at file urls.py (tasks > urls.py)
+- we are going to add a new path to be able to delete tasks
+- in that path is necessary to identify using th primary key (id) to avoid delete wrong task
+
+STEP 2:
+on the views.py (todo > tasks >views.py)
+- we create a new function called deleteTask
+- to collect the specific task using the id and with the form filled to present to the user
+- check if there is popullated data
+
+STEP 3:
+on the tasks (todo > tasks > templates > tasks)
+- create a file deletetask.html
+
+
+STEP 4:
+on list.html (todo > tasks > templates > tasks >list.html)
+- we add an ahref on the delete button to direct it for the url to delete task
+
+STEP 5:
+Create a session image to show that you propely deleted the task
+on the views.py (todo > tasks >views.py)
+- import messages
+- add code to the function deleteTask  --> messages.info(request, 'Task Deleted successfully!')
+
+
+STEP 6:
+on list.html (todo > tasks > templates > tasks >list.html)
+- we set a space where the delete message will show up
+- check if there is a message
+- use for loop to collect all messages
+- print message as list item
+
+STEP 7:
+on the styles.css (todo > tasks> statis > css> styles.css)
+- style the elements of the li created to show message
+

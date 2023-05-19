@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm
+from django.contrib import messages
 
 
 def helloworld(request):
@@ -51,6 +52,9 @@ def newTask(request):
             # we save the task
             task.save()
 
+            # session message to show for user that he added the task
+            messages.info(request, 'Task Added successfully!')
+
             # after save the task we want to return to the 'home' page
             return redirect('/')
     else:
@@ -77,6 +81,10 @@ def editTask(request, id):
         if(form.is_valid()):
             # save the task
             task.save()
+
+            # session message to show for user that he updated the task
+            messages.info(request, 'Task Updated successfully!')
+
              # after save the task we want to return to the 'home' page
             return redirect('/')
         else:
@@ -84,4 +92,12 @@ def editTask(request, id):
         
     else:
         return render(request, 'tasks/edittask.html', {'form' : form, 'task': task})
+    
+# that function needs to receive the id to be able to delete the specific task
+def deleteTask(request, id):
+    task = get_object_or_404(Task, pk=id)
+    task.delete()
 
+    # session message to show for user that he deleted the task
+    messages.info(request, 'Task Deleted successfully!')
+    return redirect('/')
