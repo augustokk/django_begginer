@@ -1,0 +1,35 @@
+In that step we are going to give functionality for our search button
+
+STEP 1:
+on list.html (todo > tasks > templates > tasks >list.html)
+- create a specific form for the search
+- update the input of search to have a value 
+
+STEP 2:
+on scripts.js (todo > tasks> statis > js >scripts.js)
+- create variables for search icon and search form
+- create function when search icon is clicked, activates the submit of search form
+
+STEP 3:
+on the views.py (todo > tasks >views.py)
+- we need update the taskList function
+- we add a new variable search
+- create a condition, if not met, the system should run just as before
+- if condition met : show the tasks that contains the word searched by the user
+
+
+**EXTRA**
+when we click to add a task the form is not beautifull for the user, we are going to improve that
+STEP 4:
+-run command (pip install django-crispy-forms) 
+-run command (pip install crispy-bootstrap4)
+
+STEP 5:
+on the file settings.py (todo > todo> settings.py)
+- add new app under list INSTALLED_APPS : ('crispy_forms',     'crispy_bootstrap4',)
+- add a constant for it at end of file : (CRISPY_TEMPLATE_PACK = 'bootstrap4' )
+
+STEP 6:
+on the files addtask.html and edittask.html (todo > tasks > templates > tasks > addtask.html AND edittask.html)
+- add {% load crispy_forms_tags %} on the top to load that library
+- change the  {{ form.as_p}} to {{ form|crispy}}

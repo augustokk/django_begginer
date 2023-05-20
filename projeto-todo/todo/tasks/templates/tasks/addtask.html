@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load crispy_forms_tags %}
 
 {% block title %} Add a new Task{% endblock %}
 
@@ -13,7 +14,7 @@
         {% csrf_token %}
 
         <!-- that tag will print the form in paragraphs -->
-        {{ form.as_p}}
+        {{ form|crispy }}
 
         <input type="submit" class="btn btn-success" value="Create Task">
     </form> 

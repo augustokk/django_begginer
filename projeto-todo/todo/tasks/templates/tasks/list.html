@@ -26,8 +26,10 @@
     
     <!-- search-div is my creation to style later-->
     <div class="col-9 search-div">
-        <input class="form-control" type="text" id="search" name="search" placeholder="Type a task name to search">
-        <i class="fas fa-search"></i> 
+        <form method="GET" id="search-form">
+            <input class="form-control" type="text" id="search" name="search" placeholder="Type a task name to search" value="{{ request.GET.search}}">
+            <i class="fas fa-search" id="search-btn"></i> 
+        </form>
     </div>
 
     <!-- space to show message if task is deleted, for example -->
@@ -74,9 +76,11 @@
                 </a>
             {% endif %}
 
+            {% if tasks.paginator.num_pages  %} <!-- check if there is more than 1 page -->
             <span class="current">
                 {{ tasks.number  }} of {{ tasks.paginator.num_pages }}
             </span>
+            {% endif %}
 
             {% if tasks.has_next %}  <!-- check if there is a next page for task list -->
                 <a href="?page={{ tasks.next_page_number }}">  <!-- creates a link for the next page -->

@@ -1,5 +1,5 @@
-In that step we are going to activate the paginator of the project
-The main idea is to avoid overuse of the database, populating too much the pages
+In that step we are going to activate the pagination of the project
+The main idea is to avoid overuse of the database, not populating too much the pages
 So we will set a number of tasks to be shown to make easier for the system and for the user
 
 STEP 1:
