@@ -11,19 +11,31 @@ def helloworld(request):
 
 
 def taskList(request):
-    # that will collect all objects from model Task from database
-    # that will order the data by creation date
-    tasks_list = Task.objects.all().order_by('-created_at')
 
-    # that will create a pagination that will display only 3 tasks per page
-    # avoid overuse of the database, user-friendly not populating too much the pages
-    paginator = Paginator(tasks_list, 3)
+    # create a variable to set the url for the page ['seacrh' is the name of the input search on the list.html]
+    search =request.GET.get('search')
 
-    # create a variable to set the url for the page
-    # then the tasks to be shown will be depending of the page requested
-    # that allows to show the correct number of tasks (3) on the correct page
-    page =request.GET.get('page')
-    tasks = paginator.get_page(page)
+    if search:
+        # we are going to search using words that appear on the title of the task
+        tasks = Task.objects.filter(title__icontains=search)
+    else:
+
+        # that will collect all objects from model Task from database
+        # that will order the data by creation date
+        tasks_list = Task.objects.all().order_by('-created_at')
+
+        # that will create a pagination that will display only 3 tasks per page
+        # avoid overuse of the database, user-friendly not populating too much the pages
+        paginator = Paginator(tasks_list, 3)
+
+        # create a variable to set the url for the page
+        # then the tasks to be shown will be depending of the page requested
+        # that allows to show the correct number of tasks (3) on the correct page
+        page =request.GET.get('page')
+        tasks = paginator.get_page(page)
+
+
+
 
     # REMEMBER view always need request and return
     # RENDER is a built-in function that needs 2 parameters: a request and a template

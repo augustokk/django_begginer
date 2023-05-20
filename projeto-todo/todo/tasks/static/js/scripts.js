@@ -1,7 +1,16 @@
 $(document).ready(function() {
+
+    // DELETE BUTTON
     // create a variable that will select that delete element 
     var deleteBtn = $('.delete-btn');
 
+    // SEARCH BUTTON
+    // create a variable to the search button (using id --> #)
+    var searchBtn = $('#search-btn');
+    // create a variable to the search form
+    var searchForm = $('#search-form');
+
+    // DELETE FUNCTION
     // function that activates when click with an parameter (e)vent
     $(deleteBtn).on('click', function(e) {
         
@@ -20,4 +29,13 @@ $(document).ready(function() {
         }
 
     });
+
+    // SEARCH FUNCTION
+    // function that activates when click on the seacrh icon
+    $(searchBtn).on('click', function() {
+        // that activates the searchForm submit
+        searchForm.submit();
+    });
 });
+
+

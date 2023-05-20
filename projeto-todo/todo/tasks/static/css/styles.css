@@ -53,6 +53,7 @@
     position:absolute; /* easier to move around the screen */
     top: 12px;
     right: 26px;
+    cursor: pointer;
 }
 
 .search-div{
