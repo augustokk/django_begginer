@@ -123,3 +123,21 @@ ul.messages{
 ul.messages.li{
     list-style: none;
 }
+
+
+/* Pagination */
+
+.pagination{
+    margin-bottom: 20px; /* avoid to be to close with footer */
+}
+
+.step-links{
+    position: relative;
+    margin-left: auto;  /* use margin left / rigth = auto to center the info into the div */
+    margin-right: auto;
+}
+
+.step-links .current{
+    margin-left: 5px; /* use margin left / rigth = 5px to give spaces for the icons and page number */
+    margin-right: 5px;
+}

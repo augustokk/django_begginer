@@ -53,17 +53,38 @@
             <span> <a href="/task/{{task.id}}">{{task.title}}</a></span> 
 
             <!-- we add an ahref on the delete button to direct it for the url to delete task -->
-            <a href ="delete/{{task.id}}">
+            <a href ="delete/{{task.id}}" class="delete-btn">
                 <span> <i class="fas fa-trash"></i></span>  <!-- icon to delete task-->
             </a>
             
              <!-- we add an ahref on the edit button to direct it for the url to edit task -->
             <a href ="edit/{{task.id}}">
-                <span> <i class="fas fa-edit"></i></span>  <!-- icon to edit task-->
+                <span> <i class="fas fa-edit"></i></span>  <!-- icon to edit task -->
             </a>
         </li>
         {% endfor %}
     </ul>
-    
+
+     <!-- pagination icons to move around pages -->
+    <div  class="pagination">
+        <span class="step-links">
+            {% if tasks.has_previous %}  <!-- check if there is a previous page for task list -->
+                <a href="?page={{ tasks.previous_page_number }}">  <!-- creates a link for the previous page -->
+                    <i class="fas fa-arrow-left"></i> <!-- icon to previous page (left) -->
+                </a>
+            {% endif %}
+
+            <span class="current">
+                {{ tasks.number  }} of {{ tasks.paginator.num_pages }}
+            </span>
+
+            {% if tasks.has_next %}  <!-- check if there is a next page for task list -->
+                <a href="?page={{ tasks.next_page_number }}">  <!-- creates a link for the next page -->
+                    <i class="fas fa-arrow-right"></i> <!-- icon to previous page (rigth) -->
+                </a>
+            {% endif %}
+        </span>
+    </div>
+
 </div>
 {% endblock %}

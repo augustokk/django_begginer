@@ -1,0 +1,42 @@
+In that step we are going to activate the paginator of the project
+The main idea is to avoid overuse of the database, populating too much the pages
+So we will set a number of tasks to be shown to make easier for the system and for the user
+
+STEP 1:
+on the views.py (todo > tasks >views.py)
+- import paginator
+- change the variable name to be more precise (tasks -> tasks_list ) on function taskList
+- create a paginator variable using the class that we import an the number of items to display
+- create a page variable to be able to show the specific page for that specific task
+- then we recreate a variable called tasks, that will then show the specific tasks
+
+STEP 2:
+on list.html (todo > tasks > templates > tasks >list.html)
+- add a new div tag at end of body to be able to move to other pages
+- create a logic to check if there is previous page or a next page
+- create links to move around that pages 
+- create a span to show current page
+
+STEP 3:
+on the styles.css (todo > tasks> statis > css> styles.css)
+- style the elements to show pagination
+
+**EXTRA**
+now we are going to create a message to confirm if the user wants to delete an item
+
+STEP 4:
+on list.html (todo > tasks > templates > tasks >list.html)
+- create a class on the tag a href of the delete link
+
+STEP 5:
+on scripts.js (todo > tasks> statis > js >scripts.js)
+- create a function using JQuery 
+- that will select that delete element from the list.html
+- the function activates when button is clicked 
+- cancel default action (delete immediately)
+- create a message to check if wants to delete
+- confirm (or not) the delete
+
+STEP 6:
+on base.html (todo > tasks > templates > base)
+- add a script on head to references to the jquery
