@@ -142,3 +142,9 @@ ul.messages.li{
     margin-left: 5px; /* use margin left / rigth = 5px to give spaces for the icons and page number */
     margin-right: 5px;
 }
+
+/* login */
+
+.auth-card{
+    margin-bottom: 30px;
+}
