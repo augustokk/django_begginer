@@ -1,0 +1,17 @@
+In that step we are going to work on login / logout
+
+on the todo folder we add at the urls.py the path:
+    path('accounts/', include('django.contrib.auth.urls')),
+
+on the todo folder we rewrite a piece of code under settings.py 
+	on the templates list we change the DIRS to 
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+at end of file create the url to redirect the user to specific page
+	LOGIN_REDIRECT_URL = '/'
+	LOGOUT_REDIRECT_URL = '/accounts/login'
+
+on todo folder we create a templates folder, then inside of it we create a registration folder
+inside that registration folder we create login.html file
+
+we also added at the views.py file the loginrequired function on each view to restrict the unauthorized view

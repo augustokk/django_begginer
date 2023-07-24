@@ -4,12 +4,12 @@ from .models import Task
 from .forms import TaskForm
 from django.contrib import messages
 from django.core.paginator import Paginator
-
+from django.contrib.auth.decorators import login_required 
 
 def helloworld(request):
     return HttpResponse ('Hello World!')
 
-
+@login_required
 def taskList(request):
 
     # create a variable to set the url for the page ['seacrh' is the name of the input search on the list.html]
@@ -43,7 +43,7 @@ def taskList(request):
     # we add a dictionary to send all that objects to the template
     return render (request, 'tasks/list.html', {'tasks' : tasks})
 
-
+@login_required
 def yourName(request, name):
     # 'name' could be any other word
     # that is returning the request , template , argument
@@ -51,13 +51,14 @@ def yourName(request, name):
 
 
 # that will receive 2 arguments request and unique id provided by django database
+@login_required
 def taskView(request, id): 
     # that will get all objects with id as primary key from database
     # if there is none object with id, return a 404 error (safety reason)
     task = get_object_or_404(Task, pk=id)
     return render (request, 'tasks/task.html', {'task' : task})
 
-
+@login_required
 def newTask(request):
     # that if will select the option to add task 
     if request.method == 'POST':
@@ -89,6 +90,7 @@ def newTask(request):
     
 
 # that function needs to receive the id to be able to edit the specific task
+@login_required
 def editTask(request, id):
 
     # with that built-in function will collect the object with the specific id
@@ -121,6 +123,7 @@ def editTask(request, id):
     
     
 # that function needs to receive the id to be able to delete the specific task
+@login_required
 def deleteTask(request, id):
     task = get_object_or_404(Task, pk=id)
     task.delete()
